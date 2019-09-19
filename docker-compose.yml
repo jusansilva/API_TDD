@@ -1,0 +1,13 @@
+application:
+  image: jusan/api_tdd
+  volumes:
+    - .:/var/www/API_TDD
+  tty: true
+  php:
+    image: bitnami/php-fpm
+    expose:
+      - 9000
+      volumes_from:
+        - application
+      volumes:
+        - ./logs/nginx/:/var/log/nginx
